@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.2s;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.image-overlay p {
+    margin: 0;
+}
+
+.image-container:hover .image {
+    transform: scale(1.1);
+}
+
+.image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+body {
+  background-color: black;
+}
+
+/* styles.css */
+
+/* Set the width of the image to one-third of the viewport width */
+img {
+    width: 20vw; /* 33.33% of the viewport width */
+    height: auto; /* Maintain aspect ratio */
+}

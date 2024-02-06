@@ -1,11 +1,25 @@
-from flask import Flask
+from flask import Flask, render_template
+from pymongo import MongoClient
+from datetime import datetime
+import creds
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
+
+# Connect to MongoDB
+client = MongoClient(creds.MONGO_URI)
+db = client["astronomy"]
+collection = db["apod"]
 
 
 @app.route("/")
-def hello_world():
-  return "<h1>Hello, World!</h1>"
+def index():
+  # Get today's date
+  today = datetime.today().strftime('%Y-%m-%d')
+
+  # Query MongoDB for the document with today's date
+  today_image = collection.find_one({"Date": today})
+
+  return render_template("index.html", image=today_image)
 
 
 if __name__ == "__main__":
