@@ -1,15 +1,23 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astronomy Images</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
-
 <body>
+    <header class="header">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Search</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="container">
         <div class="image-container">
             <img src="{{ image['Image URL'] }}" alt="NASA Image of the Day" class="image" id="apod-image">
@@ -17,8 +25,20 @@
                 <p class="image-title">{{ image['Title'] }}</p>
             </div>
         </div>
+        <div class="previous-images">
+            {% for previous_image in previous_images %}
+            <div class="previous-image-container">
+                <img src="{{ previous_image['Image URL'] }}" alt="NASA Image" class="previous-image">
+                <p class="previous-image-title">{{ previous_image['Title'] }}</p>
+            </div>
+            {% endfor %}
+        </div>
     </div>
+
+    <footer class="footer">
+        <p>© 2023 Astronomy Images. All rights reserved.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
-
 </html>
