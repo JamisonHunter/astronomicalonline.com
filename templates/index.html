@@ -1,4 +1,3 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,16 +7,29 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <div class="main-img">
-    <img src="{{ image['Image URL'] }}" alt="NASA Image of the Day" class="image" id="apod-image">
+
+  <header>
+    <p>This is the header.</p>
+  </header>
+  <div class="container">
+    <div class="main-img">
+      <img src="{{ image['Image URL'] }}" alt="NASA Image of the Day" class="image" id="apod-image">
+      <div class="tooltip">{{ image['Title'] }}</div> <!-- Tooltip -->
+    </div>
+  
+    <div class="img-1 small-img">
+      <img src="{{ image_1['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_1" id="apod-image">
+      <div class="tooltip">{{ image_1['Title'] }}</div> <!-- Tooltip -->
+    </div>
+  
+    <div class="img-2 small-img">
+      <img src="{{ image_2['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_2" id="apod-image">
+      <div class="tooltip">{{ image_2['Title'] }}</div> <!-- Tooltip -->
+    </div>
   </div>
 
-  <div class="img-1 small-img">
-    <img src="{{ image_1['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_1" id="apod-image">
-  </div>
-
-  <div class="img-2 small-img">
-    <img src="{{ image_2['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_2" id="apod-image">
-  </div>
+  <footer>
+    <p>This is the footer.</p>
+  </footer>
 </body>
 </html>

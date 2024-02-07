@@ -1,75 +1,71 @@
 body {
-  background-color: black;
+  background-color: #1f1f1f;
+  margin: 0; 
+  padding: 0; 
 }
 
-.main-img {
-  width: 300px;
-  height: 300px;
-  position: absolute;
-  top: 150px;
-  left: 100px;
-  border: 2px solid blue;
+.container {
+  display: flex; 
+  justify-content: center; /* Center items horizontally */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
 }
 
-@media only screen and (max-width: 600px) {
-  .main-img {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-}
-
-.main-img img {
-  width: 100%;
-  height: 100%;
-}
-
-.small-img {
-  height: 300px;
-  width: 300px;
-  border: 2px solid blue;
-}
-
-.image_1 {
-  height: 100%;
-  width: 100%;
-}
-
-.img-1 {
-  position: absolute;
-  top: 150px;
-  left: 463px;
+.main-img, .small-img {
+  width: 300px; 
+  height: 300px; 
+  margin: 10px; /* Add margin between images */
+  border: 2px solid #303030;
+  overflow: hidden; /* Ensure tooltip stays hidden */
+  position: relative; /* Position images relative for tooltip */
+  transition: transform 0.3s; /* Add transition effect for hover */
 }
 
 @media only screen and (max-width: 600px) {
-  .img-1 {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 20px;
-    margin-bottom: 20px;
+  .main-img, .small-img {
+    width: calc(100% - 20px); 
+    height: auto; /* Set height to auto for responsive resizing */
+    margin: 10px 0; /* Adjust margin for small screens */
   }
 }
 
-.image_2 {
-  height: 100%;
+.main-img img, .small-img img {
   width: 100%;
+  height: 100%;
+  display: block; 
 }
 
-.img-2 {
+.main-img:hover, .small-img:hover {
+  transform: scale(1.05); /* Increase size on hover */
+}
+
+.tooltip {
   position: absolute;
-  top: 150px;
-  right: 100px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  bottom: 0; 
+  left: 0;
+  width: 100%; /* Match width of image */
+  text-align: center; /* Center text */
+}
+
+.main-img:hover .tooltip, .small-img:hover .tooltip {
+  opacity: 1;
 }
 
 @media only screen and (max-width: 600px) {
-  .img-2 {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 20px;
-    margin-bottom: 20px;
+  .tooltip {
+    display: none; /* Disable tooltip on small screens */
   }
+}
+
+header {
+  background-color: #303030;
+}
+
+footer {
+  background-color: #303030;
 }

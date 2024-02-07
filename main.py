@@ -14,18 +14,21 @@ collection = db["apod"]
 
 @app.route("/")
 def index():
-  # Get date
-  date_current = "2024-02-06"
-  date_1 = "2024-02-05"
-  date_2 = "2024-02-04"
+  # Query MongoDB to find the document with the most recent date
+  most_recent_image = collection.find_one(sort=[("Date", -1)])
 
-  # Query MongoDB for the document with date
-  main_image = collection.find_one({"Date": date_current})
-  image_1 = collection.find_one({"Date": date_1})
-  image_2 = collection.find_one({"Date": date_2})
+  # Get the date of the most recent image
+  date_current = most_recent_image["Date"]
+
+  # Query MongoDB for the documents with the dates of the two previous days
+  date_1 = datetime.strptime(date_current, "%Y-%m-%d") - timedelta(days=1)
+  date_2 = datetime.strptime(date_current, "%Y-%m-%d") - timedelta(days=2)
+
+  image_1 = collection.find_one({"Date": date_1.strftime("%Y-%m-%d")})
+  image_2 = collection.find_one({"Date": date_2.strftime("%Y-%m-%d")})
 
   return render_template("index.html",
-                         image=main_image,
+                         image=most_recent_image,
                          image_1=image_1,
                          image_2=image_2)
 
