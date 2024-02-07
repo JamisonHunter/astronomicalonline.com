@@ -14,24 +14,20 @@ collection = db["apod"]
 
 @app.route("/")
 def index():
-  # Get today's date
-  today = datetime.today().strftime('%Y-%m-%d')
+  # Get date
+  date_current = "2024-02-06"
+  date_1 = "2024-02-05"
+  date_2 = "2024-02-04"
 
-  # Query MongoDB for the document with today's date
-  today_image = collection.find_one({"Date": today})
-
-  # Get the images for the previous six days
-  six_days_ago = (datetime.today() - timedelta(days=6)).strftime('%Y-%m-%d')
-  previous_images = collection.find({
-      "Date": {
-          "$gte": six_days_ago,
-          "$lt": today
-      }
-  }).sort("Date", -1).limit(6)
+  # Query MongoDB for the document with date
+  main_image = collection.find_one({"Date": date_current})
+  image_1 = collection.find_one({"Date": date_1})
+  image_2 = collection.find_one({"Date": date_2})
 
   return render_template("index.html",
-                         image=today_image,
-                         previous_images=previous_images)
+                         image=main_image,
+                         image_1=image_1,
+                         image_2=image_2)
 
 
 if __name__ == "__main__":
