@@ -6,27 +6,39 @@
     <title>About</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-  <header>
-      <nav>
-          <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-            <li><a href="/random">Random</a></li>
-          </ul>
-      </nav>
-  </header>
+  <body>
+    <div class="page-container">
+      <header>
+          <nav>
+              <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="/random">Random</a></li>
+              </ul>
+          </nav>
+      </header>
+      <div class="about-container">
+        <div class="about-title-box">
+          <h1 class="about-title">About</h1>
+        </div>
 
-  <footer>
-    <div class="container">
-      <div class="technologies">
-        <h3>Powered By</h3>
-        <img src="{{ url_for('static', filename='MDB-a12554b6.png') }}" alt="MongoDB" class="mongodb">
-        <img src="{{ url_for('static', filename='flask-logo-png-transparent.png') }}" alt="Flask" class="flask">
-        <!-- Add more logos as needed -->
+        <p>
+          Welcome! This website uses NASA's Astronomical Image of the Day API in order to display beautiful images of space and all things related to space. THe "Random" tab allows you to query the database for a random astronomical image! You can find the latest images from NASA's API on the home page. For those interested, this site was built using the Flask web framework with Python along with MongoDB as the database, which stores the images with their details. You can find a link to my source code at the bpttom of the page. THank you for stopping by and please enjoy!
+        </p>
+        <a href="https://github.com/JamisonHunter/astronomy-images-site" class="source-code">Source Code</a>
       </div>
+      <footer>
+        <div class="container">
+          <div class="technologies">
+            <h3>Powered By</h3>
+            <img src="{{ url_for('static', filename='MDB-a12554b6.png') }}" alt="MongoDB" class="mongodb">
+            <img src="{{ url_for('static', filename='flask-logo-png-transparent.png') }}" alt="Flask" class="flask">
+            <!-- Add more logos as needed -->
+          </div>
+        </div>
+      </footer>
     </div>
-  </footer>
-</body>
+  </body>
+
 
 </html>
