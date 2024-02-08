@@ -69,3 +69,104 @@ header {
 footer {
   background-color: #303030;
 }
+
+.image-details {
+  top: 50%;
+  left: 50%;
+  height: auto;
+  width: 700px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: #303030;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-img {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  background-color: #303030;
+  padding: 20px 0; 
+  margin-bottom: 10px;
+}
+
+nav ul {
+  list-style-type: none; /* Remove bullet points from the list */
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Center the list items horizontally */
+}
+
+nav ul li {
+  display: inline-block; /* Display list items horizontally */
+  margin-right: 20px; /* Add margin between list items */
+}
+
+nav ul li a {
+  text-decoration: none; /* Remove underline from links */
+  color: #ffffff; /* Set link color to white */
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  color: blue; 
+}
+
+footer {
+  background-color: #303030;
+  color: #ffffff;
+  padding: 40px 0;
+  margin-top: 10px;
+}
+
+.contact,
+.technologies {
+  flex: 1;
+  padding: 20px;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact input,
+.contact textarea,
+.contact button {
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+}
+
+.contact button {
+  background-color: #ffffff;
+  color: #303030;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact button:hover {
+  background-color: #cccccc;
+}
+
+.technologies img {
+  width: 50px; /* Adjust size of logos as needed */
+  margin-right: 20px; /* Add space between logos */
+}
+
+.flask {
+  height: 100px;
+  width: 100px;
+}

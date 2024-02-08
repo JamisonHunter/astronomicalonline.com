@@ -1,9 +1,10 @@
+<!-- templates/image_details.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>Image Details</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -16,7 +17,16 @@
           </ul>
       </nav>
   </header>
-
+    <div class="container">
+        <div class="image-details">
+          <div class="image-container">
+            <img src="{{ image['Image URL'] }}" alt="{{ image['Title'] }}" class="detail-img">
+          </div>
+            <h2 class="detail-title">{{ image['Title'] }}</h2>
+            <p class="date">{{ image['Date'] }}</p>
+            <p class="description">{{ image['Explanation'] }}</p>
+        </div>
+    </div>
   <footer>
     <div class="container">
       <div class="contact">
@@ -37,5 +47,4 @@
     </div>
   </footer>
 </body>
-
 </html>

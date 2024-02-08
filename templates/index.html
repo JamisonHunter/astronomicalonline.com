@@ -1,3 +1,4 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,29 +8,58 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/random">Random</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <header>
-    <p>This is the header.</p>
-  </header>
-  <div class="container">
-    <div class="main-img">
-      <img src="{{ image['Image URL'] }}" alt="NASA Image of the Day" class="image" id="apod-image">
-      <div class="tooltip">{{ image['Title'] }}</div> <!-- Tooltip -->
+    <div class="container">
+        <div class="main-img">
+            <a href="/image_details/{{ image['_id'] }}">
+                <img src="{{ image['Image URL'] }}" alt="NASA Image of the Day" class="image" id="apod-image">
+            </a>
+            <div class="tooltip">{{ image['Title'] }}</div> <!-- Tooltip -->
+        </div>
+
+        <div class="img-1 small-img">
+            <a href="/image_details/{{ image_1['_id'] }}">
+                <img src="{{ image_1['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_1" id="apod-image">
+            </a>
+            <div class="tooltip">{{ image_1['Title'] }}</div> <!-- Tooltip -->
+        </div>
+
+        <div class="img-2 small-img">
+            <a href="/image_details/{{ image_2['_id'] }}">
+                <img src="{{ image_2['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_2" id="apod-image">
+            </a>
+            <div class="tooltip">{{ image_2['Title'] }}</div> <!-- Tooltip -->
+        </div>
     </div>
-  
-    <div class="img-1 small-img">
-      <img src="{{ image_1['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_1" id="apod-image">
-      <div class="tooltip">{{ image_1['Title'] }}</div> <!-- Tooltip -->
-    </div>
-  
-    <div class="img-2 small-img">
-      <img src="{{ image_2['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_2" id="apod-image">
-      <div class="tooltip">{{ image_2['Title'] }}</div> <!-- Tooltip -->
-    </div>
-  </div>
 
   <footer>
-    <p>This is the footer.</p>
+    <div class="container">
+      <div class="contact">
+        <h3>Contact Us</h3>
+        <form>
+          <input type="text" name="name" placeholder="Your Name">
+          <input type="email" name="email" placeholder="Your Email">
+          <textarea name="message" placeholder="Your Message"></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+      <div class="technologies">
+        <h3>Powered By</h3>
+        <img src="{{ url_for('static', filename='MDB-a12554b6.png') }}" alt="MongoDB" class="mongodb">
+        <img src="{{ url_for('static', filename='flask-logo-png-transparent.png') }}" alt="Flask" class="flask">
+        <!-- Add more logos as needed -->
+      </div>
+    </div>
   </footer>
+
 </body>
 </html>

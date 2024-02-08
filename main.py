@@ -1,7 +1,8 @@
-# app.py
 from flask import Flask, render_template
 from pymongo import MongoClient
+from random import randint
 from datetime import datetime, timedelta
+from bson import ObjectId
 import creds
 
 app = Flask(__name__, static_folder='static')
@@ -12,6 +13,7 @@ db = client["astronomy"]
 collection = db["apod"]
 
 
+# Routes
 @app.route("/")
 def index():
   # Query MongoDB to find the document with the most recent date
@@ -31,6 +33,32 @@ def index():
                          image=most_recent_image,
                          image_1=image_1,
                          image_2=image_2)
+
+
+@app.route("/about")
+def about():
+  return render_template("about.html")
+
+
+@app.route("/random")
+def random():
+  # Get the total number of documents in the collection
+  total_images = collection.count_documents({})
+
+  # Generate a random index within the range of total images
+  random_index = randint(0, total_images - 1)
+
+  # Query MongoDB to get a random document
+  random_image = collection.find().limit(-1).skip(random_index).next()
+
+  return render_template("image_details.html", image=random_image)
+
+
+@app.route("/image_details/<image_id>")
+def image_details(image_id):
+  # Query MongoDB to find the document with the specified image ID
+  image = collection.find_one({"_id": ObjectId(image_id)})
+  return render_template("image_details.html", image=image)
 
 
 if __name__ == "__main__":
