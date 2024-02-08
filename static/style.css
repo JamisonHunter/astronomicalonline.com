@@ -126,41 +126,6 @@ footer {
   margin-top: 10px;
 }
 
-.contact,
-.technologies {
-  flex: 1;
-  padding: 20px;
-}
-
-.contact form {
-  display: flex;
-  flex-direction: column;
-}
-
-.contact input,
-.contact textarea,
-.contact button {
-  margin-bottom: 15px;
-  padding: 10px;
-}
-
-.contact input,
-.contact textarea {
-  width: 100%;
-}
-
-.contact button {
-  background-color: #ffffff;
-  color: #303030;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.contact button:hover {
-  background-color: #cccccc;
-}
-
 .technologies img {
   width: 50px; /* Adjust size of logos as needed */
   margin-right: 20px; /* Add space between logos */

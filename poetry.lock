@@ -93,6 +93,20 @@ async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
 
 [[package]]
+name = "flask-mail"
+version = "0.9.1"
+description = "Flask extension for sending email"
+optional = false
+python-versions = "*"
+files = [
+    {file = "Flask-Mail-0.9.1.tar.gz", hash = "sha256:22e5eb9a940bf407bcf30410ecc3708f3c56cc44b29c34e1726fe85006935f41"},
+]
+
+[package.dependencies]
+blinker = "*"
+Flask = "*"
+
+[[package]]
 name = "itsdangerous"
 version = "2.1.2"
 description = "Safely pass data to untrusted environments and back."
@@ -337,4 +351,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "78bc0792bd5ce650b90bd0ca9f07219e1d853d01d59c5c0687654b9f3a7ac039"
+content-hash = "e40ead47715d85d488f4ddb8b9b582c03566bde44dc4276047695a10b6a5351f"

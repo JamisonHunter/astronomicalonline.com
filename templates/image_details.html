@@ -29,19 +29,10 @@
     </div>
   <footer>
     <div class="container">
-      <div class="contact">
-        <h3>Contact Us</h3>
-        <form>
-          <input type="text" name="name" placeholder="Your Name">
-          <input type="email" name="email" placeholder="Your Email">
-          <textarea name="message" placeholder="Your Message"></textarea>
-          <button type="submit">Send</button>
-        </form>
-      </div>
       <div class="technologies">
-        <h3>Technologies Used</h3>
-        <img src="path/to/logo1.png" alt="Logo 1">
-        <img src="path/to/logo2.png" alt="Logo 2">
+        <h3>Powered By</h3>
+        <img src="{{ url_for('static', filename='MDB-a12554b6.png') }}" alt="MongoDB" class="mongodb">
+        <img src="{{ url_for('static', filename='flask-logo-png-transparent.png') }}" alt="Flask" class="flask">
         <!-- Add more logos as needed -->
       </div>
     </div>

@@ -9,6 +9,7 @@ python = ">=3.10.0,<3.11"
 flask = "^3.0.2"
 pymongo = "^4.6.1"
 bson = "^0.5.10"
+flask-mail = "^0.9.1"
 
 [tool.pyright]
 # https://github.com/microsoft/pyright/blob/main/docs/configuration.md
