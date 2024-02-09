@@ -3,29 +3,30 @@ body {
   margin: 0; 
   padding: 0; 
   font-family: "Open Sans", sans-serif;
+  font-size: 20px;
 }
 
 .container {
   display: flex; 
-  justify-content: center; /* Center items horizontally */
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; 
+  flex-wrap: wrap; 
 }
 
 .main-img, .small-img {
   width: 300px; 
   height: 300px; 
-  margin: 10px; /* Add margin between images */
+  margin: 10px; 
   border: 2px solid #303030;
-  overflow: hidden; /* Ensure tooltip stays hidden */
-  position: relative; /* Position images relative for tooltip */
-  transition: transform 0.3s; /* Add transition effect for hover */
+  overflow: hidden; 
+  position: relative; 
+  transition: transform 0.3s; 
 }
 
 @media only screen and (max-width: 600px) {
   .main-img, .small-img {
     width: calc(100% - 20px); 
-    height: auto; /* Set height to auto for responsive resizing */
-    margin: 10px 0; /* Adjust margin for small screens */
+    height: auto; 
+    margin: 10px 0; 
   }
 }
 
@@ -36,7 +37,7 @@ body {
 }
 
 .main-img:hover, .small-img:hover {
-  transform: scale(1.05); /* Increase size on hover */
+  transform: scale(1.05);
 }
 
 .tooltip {
@@ -49,8 +50,8 @@ body {
   transition: opacity 0.3s;
   bottom: 0; 
   left: 0;
-  width: 100%; /* Match width of image */
-  text-align: center; /* Center text */
+  width: 100%;
+  text-align: center; 
 }
 
 .main-img:hover .tooltip, .small-img:hover .tooltip {
@@ -59,7 +60,7 @@ body {
 
 @media only screen and (max-width: 600px) {
   .tooltip {
-    display: none; /* Disable tooltip on small screens */
+    display: none;
   }
 }
 
@@ -99,20 +100,20 @@ header {
 }
 
 nav ul {
-  list-style-type: none; /* Remove bullet points from the list */
+  list-style-type: none; 
   margin: 0;
   padding: 0;
-  text-align: center; /* Center the list items horizontally */
+  text-align: center; 
 }
 
 nav ul li {
-  display: inline-block; /* Display list items horizontally */
-  margin-right: 20px; /* Add margin between list items */
+  display: inline-block; 
+  margin-right: 20px; 
 }
 
 nav ul li a {
-  text-decoration: none; /* Remove underline from links */
-  color: #ffffff; /* Set link color to white */
+  text-decoration: none; 
+  color: #ffffff;
   font-size: 18px;
 }
 
@@ -128,11 +129,34 @@ footer {
 }
 
 .technologies img {
-  width: 50px; /* Adjust size of logos as needed */
-  margin-right: 20px; /* Add space between logos */
+  width: 50px;
+  margin-right: 20px; 
 }
 
 .flask {
   height: 100px;
   width: 100px;
+}
+
+.source-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.source-code {
+  text-decoration: none; 
+  color: #ffffff; 
+  font-size: 18px;
+}
+
+.source-code:hover {
+  color: blue; 
+}
+
+a {
+  font-size: 20px;
+}
+
+.about-title-box {
+  text-align: center;
 }

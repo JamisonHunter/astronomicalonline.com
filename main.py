@@ -10,6 +10,7 @@ app = Flask(__name__, static_folder='static')
 
 
 # Routes
+# Home
 @app.route("/")
 def index():
   # Connect to MongoDB
@@ -36,11 +37,27 @@ def index():
                          image_2=image_2)
 
 
+# About
 @app.route("/about")
 def about():
-  return render_template("about.html")
+  # Connect to MongoDB
+  client = MongoClient(creds.MONGO_URI)
+  db = client["astronomy"]
+  collection = db["apod"]
+
+  # Get the total number of documents in the collection
+  total_images = collection.count_documents({})
+
+  # Generate a random index within the range of total images
+  random_index = randint(0, total_images - 1)
+
+  # Query MongoDB to get a random document
+  random_image = collection.find().limit(-1).skip(random_index).next()
+
+  return render_template("about.html", image=random_image)
 
 
+# Random Image
 @app.route("/random")
 def random():
   # Connect to MongoDB
@@ -60,6 +77,7 @@ def random():
   return render_template("image_details.html", image=random_image)
 
 
+# Image Details
 @app.route("/image_details/<image_id>")
 def image_details(image_id):
   # Connect to MongoDB
