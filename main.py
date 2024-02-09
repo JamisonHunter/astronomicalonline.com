@@ -4,9 +4,11 @@ from pymongo import MongoClient
 from random import randint
 from datetime import datetime, timedelta
 from bson import ObjectId
-import creds
+import os
 
 app = Flask(__name__, static_folder='static')
+
+my_secret = os.environ['MONGO_URI']
 
 
 # Routes
@@ -14,7 +16,7 @@ app = Flask(__name__, static_folder='static')
 @app.route("/")
 def index():
   # Connect to MongoDB
-  client = MongoClient(creds.MONGO_URI)
+  client = MongoClient(my_secret)
   db = client["astronomy"]
   collection = db["apod"]
 
@@ -41,7 +43,7 @@ def index():
 @app.route("/about")
 def about():
   # Connect to MongoDB
-  client = MongoClient(creds.MONGO_URI)
+  client = MongoClient(my_secret)
   db = client["astronomy"]
   collection = db["apod"]
 
@@ -61,7 +63,7 @@ def about():
 @app.route("/random")
 def random():
   # Connect to MongoDB
-  client = MongoClient(creds.MONGO_URI)
+  client = MongoClient(my_secret)
   db = client["astronomy"]
   collection = db["apod"]
 
@@ -81,7 +83,7 @@ def random():
 @app.route("/image_details/<image_id>")
 def image_details(image_id):
   # Connect to MongoDB
-  client = MongoClient(creds.MONGO_URI)
+  client = MongoClient(my_secret)
   db = client["astronomy"]
   collection = db["apod"]
 
