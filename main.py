@@ -1,5 +1,5 @@
 # Imports
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from random import randint
 from datetime import datetime, timedelta
@@ -45,6 +45,9 @@ def index():
   image_7 = collection.find_one({"Date": date_7.strftime("%Y-%m-%d")})
   image_8 = collection.find_one({"Date": date_8.strftime("%Y-%m-%d")})
 
+  # Query MongoDB to get available dates
+  available_dates = collection.distinct("Date")
+
   return render_template("index.html",
                          image=most_recent_image,
                          image_1=image_1,
@@ -54,7 +57,8 @@ def index():
                          image_5=image_5,
                          image_6=image_6,
                          image_7=image_7,
-                         image_8=image_8)
+                         image_8=image_8,
+                         available_dates=available_dates)
 
 
 # About
@@ -108,6 +112,29 @@ def image_details(image_id):
   # Query MongoDB to find the document with the specified image ID
   image = collection.find_one({"_id": ObjectId(image_id)})
   return render_template("image_details.html", image=image)
+
+
+# Search
+@app.route("/search", methods=["POST"])
+def search():
+  search_date = request.form.get("searchDate")
+
+  # Perform database query to find images for the selected date
+  client = MongoClient(my_secret)
+  db = client["astronomy"]
+  collection = db["apod"]
+
+  # Query MongoDB to find the image with the selected date
+  selected_image = collection.find_one({"Date": search_date})
+
+  if selected_image:
+    # If an image is found, redirect to the image details page
+    return redirect(
+        url_for("image_details", image_id=str(selected_image["_id"])))
+  else:
+    # If no image is found, render an error page or handle it as desired
+    return render_template("error.html",
+                           message="No image found for the selected date.")
 
 
 if __name__ == "__main__":

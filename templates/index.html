@@ -17,6 +17,19 @@
         </nav>
     </header>
 
+  <div class="container">
+    <!-- Search Form -->
+    <form id="searchForm" method="POST" action="/search" class="search-form">
+      <select id="searchDate" name="searchDate" class="search-select" required>
+        <option value="" disabled selected>Select a date</option>
+        {% for date in available_dates %}
+          <option value="{{ date }}">{{ date }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit" class="search-button">Search</button>
+    </form>
+  </div>
+
     <div class="container">
         <div class="main-img">
             <a href="/image_details/{{ image['_id'] }}">
