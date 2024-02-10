@@ -29,14 +29,32 @@ def index():
   # Query MongoDB for the documents with the dates of the two previous days
   date_1 = datetime.strptime(date_current, "%Y-%m-%d") - timedelta(days=1)
   date_2 = datetime.strptime(date_current, "%Y-%m-%d") - timedelta(days=2)
+  date_3 = datetime.strptime(date_current, "%Y-%m-%d") - timedelta(days=3)
+  date_4 = datetime.strptime(date_current, "%Y-%m-%d") - timedelta(days=4)
+  date_5 = datetime.strptime(date_current, "%Y-%m-%d") - timedelta(days=5)
+  date_6 = datetime.strptime(date_current, "%Y-%m-%d") - timedelta(days=6)
+  date_7 = datetime.strptime(date_current, "%Y-%m-%d") - timedelta(days=7)
+  date_8 = datetime.strptime(date_current, "%Y-%m-%d") - timedelta(days=8)
 
   image_1 = collection.find_one({"Date": date_1.strftime("%Y-%m-%d")})
   image_2 = collection.find_one({"Date": date_2.strftime("%Y-%m-%d")})
+  image_3 = collection.find_one({"Date": date_3.strftime("%Y-%m-%d")})
+  image_4 = collection.find_one({"Date": date_4.strftime("%Y-%m-%d")})
+  image_5 = collection.find_one({"Date": date_5.strftime("%Y-%m-%d")})
+  image_6 = collection.find_one({"Date": date_6.strftime("%Y-%m-%d")})
+  image_7 = collection.find_one({"Date": date_7.strftime("%Y-%m-%d")})
+  image_8 = collection.find_one({"Date": date_8.strftime("%Y-%m-%d")})
 
   return render_template("index.html",
                          image=most_recent_image,
                          image_1=image_1,
-                         image_2=image_2)
+                         image_2=image_2,
+                         image_3=image_3,
+                         image_4=image_4,
+                         image_5=image_5,
+                         image_6=image_6,
+                         image_7=image_7,
+                         image_8=image_8)
 
 
 # About
