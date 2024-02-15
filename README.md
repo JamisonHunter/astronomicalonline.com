@@ -6,6 +6,7 @@ I had two primary goals in building this website. My first goal was to build a w
 This website is currently being hosted on the cloud with a unique URL so getting started is as easy as following the link below!
 
 [Click here](https://www.astronomicalonline.com/) to check it out!
-#Technologies
-My website uses Python's Flask framework along with MongoDB in order to dynamically update the website daily with the newest image from NASA's API. The site is updated using a Python script, which is run from my home server. 
+# Technologies
+My website uses Python's Flask framework along with MongoDB in order to dynamically update the website daily with the newest image from NASA's API. The site is updated using a Python script, which is run from my home server.
+
 [Click here](https://github.com/JamisonHunter/astronomy-mongodb-updater)https://github.com/JamisonHunter/astronomy-mongodb-updater) for the Python MongoDB update script!
