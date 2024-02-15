@@ -9,4 +9,4 @@ This website is currently being hosted on the cloud with a unique URL so getting
 # Technologies
 My website uses Python's Flask framework along with MongoDB in order to dynamically update the website daily with the newest image from NASA's API. The site is updated using a Python script, which is run from my home server.
 
-[Click here](https://github.com/JamisonHunter/astronomy-mongodb-updater)https://github.com/JamisonHunter/astronomy-mongodb-updater) for the Python MongoDB update script!
+[Click here](https://github.com/JamisonHunter/astronomy-mongodb-updater) for the Python MongoDB update script!
