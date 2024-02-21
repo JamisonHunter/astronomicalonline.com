@@ -11,9 +11,9 @@
     <header>
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/random">Random</a></li>
+                <li alt="Home"><a href="/">Home</a></li>
+                <li alt="About"><a href="/about">About</a></li>
+                <li alt="Random"><a href="/random">Random</a></li>
             </ul>
         </nav>
     </header>
@@ -24,31 +24,31 @@
       <select id="searchDate" name="searchDate" class="search-select" required>
         <option value="" disabled selected>Select a date</option>
         {% for date in available_dates %}
-          <option value="{{ date }}">{{ date }}</option>
+          <option value="{{ date }}" alt="{{ Date }}">{{ date }}</option>
         {% endfor %}
       </select>
-      <button type="submit" class="search-button">Search</button>
+      <button type="submit" class="search-button" alt="Search">Search</button>
     </form>
   </div>
 
     <div class="container">
         <div class="main-img">
             <a href="/image_details/{{ image['_id'] }}">
-                <img src="{{ image['Image URL'] }}" alt="NASA Image of the Day" class="image" id="apod-image">
+                <img src="{{ image['Image URL'] }}" alt="{{ image['Title'] }}" class="image" id="apod-image">
             </a>
             <div class="tooltip">{{ image['Title'] }}</div> <!-- Tooltip -->
         </div>
 
         <div class="img-1 small-img">
             <a href="/image_details/{{ image_1['_id'] }}">
-                <img src="{{ image_1['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_1" id="apod-image">
+                <img src="{{ image_1['Image URL'] }}" alt="{{ image_1['Title'] }}" class="image_1" id="apod-image">
             </a>
             <div class="tooltip">{{ image_1['Title'] }}</div> <!-- Tooltip -->
         </div>
 
         <div class="img-2 small-img">
             <a href="/image_details/{{ image_2['_id'] }}">
-                <img src="{{ image_2['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_2" id="apod-image">
+                <img src="{{ image_2['Image URL'] }}" alt="{{ image_2['Title'] }}" class="image_2" id="apod-image">
             </a>
             <div class="tooltip">{{ image_2['Title'] }}</div> <!-- Tooltip -->
         </div>
@@ -59,21 +59,21 @@
     <div class="container">
       <div class="main-img">
           <a href="/image_details/{{ image_3['_id'] }}">
-              <img src="{{ image_3['Image URL'] }}" alt="NASA Image of the Day" class="image" id="apod-image">
+              <img src="{{ image_3['Image URL'] }}" alt="{{ image_3['Title'] }}" class="image" id="apod-image">
           </a>
           <div class="tooltip">{{ image_3['Title'] }}</div> <!-- Tooltip -->
       </div>
 
         <div class="img-4 small-img">
             <a href="/image_details/{{ image_4['_id'] }}">
-                <img src="{{ image_4['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_1" id="apod-image">
+                <img src="{{ image_4['Image URL'] }}" alt="{{ image_4['Title'] }}" class="image_1" id="apod-image">
             </a>
             <div class="tooltip">{{ image_4['Title'] }}</div> <!-- Tooltip -->
         </div>
 
         <div class="img-5 small-img">
             <a href="/image_details/{{ image_5['_id'] }}">
-                <img src="{{ image_5['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_2" id="apod-image">
+                <img src="{{ image_5['Image URL'] }}" alt="{{ image_5['Title'] }}" class="image_2" id="apod-image">
             </a>
             <div class="tooltip">{{ image_5['Title'] }}</div> <!-- Tooltip -->
         </div>
@@ -84,21 +84,21 @@
     <div class="container">
       <div class="main-img">
           <a href="/image_details/{{ image_6['_id'] }}">
-              <img src="{{ image_6['Image URL'] }}" alt="NASA Image of the Day" class="image" id="apod-image">
+              <img src="{{ image_6['Image URL'] }}" alt="{{ image_6['Title'] }}" class="image" id="apod-image">
           </a>
           <div class="tooltip">{{ image_6['Title'] }}</div> <!-- Tooltip -->
       </div>
 
         <div class="img-7 small-img">
             <a href="/image_details/{{ image_7['_id'] }}">
-                <img src="{{ image_7['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_1" id="apod-image">
+                <img src="{{ image_7['Image URL'] }}" alt="{{ image_7['Title'] }}" class="image_1" id="apod-image">
             </a>
             <div class="tooltip">{{ image_7['Title'] }}</div> <!-- Tooltip -->
         </div>
 
         <div class="img-8 small-img">
             <a href="/image_details/{{ image_8['_id'] }}">
-                <img src="{{ image_8['Image URL'] }}" alt="NASA Image of the Day as of yesterday." class="image_2" id="apod-image">
+                <img src="{{ image_8['Image URL'] }}" alt="{{ image_8['Title'] }}" class="image_2" id="apod-image">
             </a>
             <div class="tooltip">{{ image_8['Title'] }}</div> <!-- Tooltip -->
         </div>
