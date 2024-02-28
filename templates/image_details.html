@@ -13,14 +13,18 @@
           <ul>
               <li><a href="/">Home</a></li>
               <li><a href="/about">About</a></li>
-            <li><a href="/random">Random</a></li>
+              <li><a href="/random">Random</a></li>
           </ul>
       </nav>
   </header>
     <div class="container">
         <div class="image-details">
           <div class="image-container">
+            {% if 'youtube.com' in image['Image URL'] %}
+            <iframe width="560" height="315" src="{{ image['Image URL'] }}" frameborder="0" allowfullscreen></iframe>
+            {% else %}
             <img src="{{ image['Image URL'] }}" alt="{{ image['Title'] }}" class="detail-img">
+            {% endif %}
           </div>
             <h2 class="detail-title">{{ image['Title'] }}</h2>
             <p class="date">{{ image['Date'] }}</p>
