@@ -34,76 +34,118 @@
     <div class="container">
         <div class="main-img">
             <a href="/image_details/{{ image['_id'] }}">
-                <img src="{{ image['Image URL'] }}" alt="{{ image['Title'] }}" class="image" id="apod-image">
+                {% if 'youtube.com' in image['Image URL'] %}
+                    {% set video_id = image['Image URL'].split('=')[-1] %}
+                    <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg" alt="{{ image['Title'] }}" class="image" id="apod-image">
+                {% else %}
+                    <img src="{{ image['Image URL'] }}" alt="{{ image['Title'] }}" class="image" id="apod-image">
+                {% endif %}
             </a>
             <div class="tooltip">{{ image['Title'] }}</div> <!-- Tooltip -->
         </div>
 
         <div class="img-1 small-img">
             <a href="/image_details/{{ image_1['_id'] }}">
-                <img src="{{ image_1['Image URL'] }}" alt="{{ image_1['Title'] }}" class="image_1" id="apod-image">
+                {% if 'youtube.com' in image_1['Image URL'] %}
+                    {% set video_id = image_1['Image URL'].split('=')[-1] %}
+                    <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg" alt="{{ image_1['Title'] }}" class="image_1" id="apod-image">
+                {% else %}
+                    <img src="{{ image_1['Image URL'] }}" alt="{{ image_1['Title'] }}" class="image_1" id="apod-image">
+                {% endif %}
             </a>
             <div class="tooltip">{{ image_1['Title'] }}</div> <!-- Tooltip -->
         </div>
 
         <div class="img-2 small-img">
             <a href="/image_details/{{ image_2['_id'] }}">
-                <img src="{{ image_2['Image URL'] }}" alt="{{ image_2['Title'] }}" class="image_2" id="apod-image">
+                {% if 'youtube.com' in image_2['Image URL'] %}
+                    {% set video_id = image_2['Image URL'].split('=')[-1] %}
+                    <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg" alt="{{ image_2['Title'] }}" class="image_2" id="apod-image">
+                {% else %}
+                    <img src="{{ image_2['Image URL'] }}" alt="{{ image_2['Title'] }}" class="image_2" id="apod-image">
+                {% endif %}
             </a>
             <div class="tooltip">{{ image_2['Title'] }}</div> <!-- Tooltip -->
         </div>
     </div>
+  <!-- Container 2 -->
 
-    <!-- Container 2 -->
-
-    <div class="container">
-      <div class="main-img">
-          <a href="/image_details/{{ image_3['_id'] }}">
-              <img src="{{ image_3['Image URL'] }}" alt="{{ image_3['Title'] }}" class="image" id="apod-image">
-          </a>
-          <div class="tooltip">{{ image_3['Title'] }}</div> <!-- Tooltip -->
-      </div>
-
-        <div class="img-4 small-img">
-            <a href="/image_details/{{ image_4['_id'] }}">
-                <img src="{{ image_4['Image URL'] }}" alt="{{ image_4['Title'] }}" class="image_1" id="apod-image">
-            </a>
-            <div class="tooltip">{{ image_4['Title'] }}</div> <!-- Tooltip -->
-        </div>
-
-        <div class="img-5 small-img">
-            <a href="/image_details/{{ image_5['_id'] }}">
-                <img src="{{ image_5['Image URL'] }}" alt="{{ image_5['Title'] }}" class="image_2" id="apod-image">
-            </a>
-            <div class="tooltip">{{ image_5['Title'] }}</div> <!-- Tooltip -->
-        </div>
+  <div class="container">
+    <div class="main-img">
+        <a href="/image_details/{{ image_3['_id'] }}">
+            {% if 'youtube.com' in image_3['Image URL'] %}
+                {% set video_id = image_3['Image URL'].split('=')[-1] %}
+                <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg" alt="{{ image_3['Title'] }}" class="image" id="apod-image">
+            {% else %}
+                <img src="{{ image_3['Image URL'] }}" alt="{{ image_3['Title'] }}" class="image" id="apod-image">
+            {% endif %}
+        </a>
+        <div class="tooltip">{{ image_3['Title'] }}</div> <!-- Tooltip -->
     </div>
 
-    <!-- Container 3 -->
-
-    <div class="container">
-      <div class="main-img">
-          <a href="/image_details/{{ image_6['_id'] }}">
-              <img src="{{ image_6['Image URL'] }}" alt="{{ image_6['Title'] }}" class="image" id="apod-image">
+      <div class="img-4 small-img">
+          <a href="/image_details/{{ image_4['_id'] }}">
+              {% if 'youtube.com' in image_4['Image URL'] %}
+                  {% set video_id = image_4['Image URL'].split('=')[-1] %}
+                  <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg" alt="{{ image_4['Title'] }}" class="image_1" id="apod-image">
+              {% else %}
+                  <img src="{{ image_4['Image URL'] }}" alt="{{ image_4['Title'] }}" class="image_1" id="apod-image">
+              {% endif %}
           </a>
-          <div class="tooltip">{{ image_6['Title'] }}</div> <!-- Tooltip -->
+          <div class="tooltip">{{ image_4['Title'] }}</div> <!-- Tooltip -->
       </div>
 
-        <div class="img-7 small-img">
-            <a href="/image_details/{{ image_7['_id'] }}">
-                <img src="{{ image_7['Image URL'] }}" alt="{{ image_7['Title'] }}" class="image_1" id="apod-image">
-            </a>
-            <div class="tooltip">{{ image_7['Title'] }}</div> <!-- Tooltip -->
-        </div>
+      <div class="img-5 small-img">
+          <a href="/image_details/{{ image_5['_id'] }}">
+              {% if 'youtube.com' in image_5['Image URL'] %}
+                  {% set video_id = image_5['Image URL'].split('=')[-1] %}
+                  <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg" alt="{{ image_5['Title'] }}" class="image_2" id="apod-image">
+              {% else %}
+                  <img src="{{ image_5['Image URL'] }}" alt="{{ image_5['Title'] }}" class="image_2" id="apod-image">
+              {% endif %}
+          </a>
+          <div class="tooltip">{{ image_5['Title'] }}</div> <!-- Tooltip -->
+      </div>
+  </div>
+  <!-- Container 3 -->
 
-        <div class="img-8 small-img">
-            <a href="/image_details/{{ image_8['_id'] }}">
-                <img src="{{ image_8['Image URL'] }}" alt="{{ image_8['Title'] }}" class="image_2" id="apod-image">
-            </a>
-            <div class="tooltip">{{ image_8['Title'] }}</div> <!-- Tooltip -->
-        </div>
+  <div class="container">
+    <div class="main-img">
+        <a href="/image_details/{{ image_6['_id'] }}">
+            {% if 'youtube.com' in image_6['Image URL'] %}
+                {% set video_id = image_6['Image URL'].split('=')[-1] %}
+                <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg" alt="{{ image_6['Title'] }}" class="image" id="apod-image">
+            {% else %}
+                <img src="{{ image_6['Image URL'] }}" alt="{{ image_6['Title'] }}" class="image" id="apod-image">
+            {% endif %}
+        </a>
+        <div class="tooltip">{{ image_6['Title'] }}</div> <!-- Tooltip -->
     </div>
 
+      <div class="img-7 small-img">
+          <a href="/image_details/{{ image_7['_id'] }}">
+              {% if 'youtube.com' in image_7['Image URL'] %}
+                  {% set video_id = image_7['Image URL'].split('=')[-1] %}
+                  <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg" alt="{{ image_7['Title'] }}" class="image_1" id="apod-image">
+              {% else %}
+                  <img src="{{ image_7['Image URL'] }}" alt="{{ image_7['Title'] }}" class="image_1" id="apod-image">
+              {% endif %}
+          </a>
+          <div class="tooltip">{{ image_7['Title'] }}</div> <!-- Tooltip -->
+      </div>
+
+      <div class="img-8 small-img">
+          <a href="/image_details/{{ image_8['_id'] }}">
+              {% if 'youtube.com' in image_8['Image URL'] %}
+                  {% set video_id = image_8['Image URL'].split('=')[-1] %}
+                  <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg" alt="{{ image_8['Title'] }}" class="image_2" id="apod-image">
+              {% else %}
+                  <img src="{{ image_8['Image URL'] }}" alt="{{ image_8['Title'] }}" class="image_2" id="apod-image">
+              {% endif %}
+          </a>
+          <div class="tooltip">{{ image_8['Title'] }}</div> <!-- Tooltip -->
+      </div>
+  </div>
   <footer>
     <div class="container">
       <div class="technologies">
@@ -114,5 +156,5 @@
     </div>
   </footer>
 
-</body>
-</html>
+  </body>
+  </html>

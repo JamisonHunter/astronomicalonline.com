@@ -15,18 +15,18 @@ my_secret = os.environ['MONGO_URI']
 # Home
 @app.route("/")
 def index():
-  # Connect to MongoDB
+  # Connecting to MongoDB.
   client = MongoClient(my_secret)
   db = client["astronomy"]
   collection = db["apod"]
 
-  # Query MongoDB to find the document with the most recent date
+  # Querying MongoDB to find the document with the most recent date.
   most_recent_image = collection.find_one(sort=[("Date", -1)])
 
-  # Get the date of the most recent image
+  # Getting the date of the most recent image
   date_current = most_recent_image["Date"]
 
-  # Query MongoDB for the documents with the dates of the two previous days
+  # Query MongoDB for the documents with the dates of the previous days.
   date_1 = datetime.strptime(date_current, "%Y-%m-%d") - timedelta(days=1)
   date_2 = datetime.strptime(date_current, "%Y-%m-%d") - timedelta(days=2)
   date_3 = datetime.strptime(date_current, "%Y-%m-%d") - timedelta(days=3)
@@ -45,7 +45,7 @@ def index():
   image_7 = collection.find_one({"Date": date_7.strftime("%Y-%m-%d")})
   image_8 = collection.find_one({"Date": date_8.strftime("%Y-%m-%d")})
 
-  # Query MongoDB to get available dates
+  # Querying MongoDB to get available dates.
   available_dates = collection.distinct("Date")
 
   return render_template("index.html",
@@ -64,18 +64,18 @@ def index():
 # About
 @app.route("/about")
 def about():
-  # Connect to MongoDB
+  # Connecting to MongoDB.
   client = MongoClient(my_secret)
   db = client["astronomy"]
   collection = db["apod"]
 
-  # Get the total number of documents in the collection
+  # Getting the total number of documents in the collection.
   total_images = collection.count_documents({})
 
-  # Generate a random index within the range of total images
+  # Generating a random index within the range of total images.
   random_index = randint(0, total_images - 1)
 
-  # Query MongoDB to get a random document
+  # Querying MongoDB to get a random document.
   random_image = collection.find().limit(-1).skip(random_index).next()
 
   return render_template("about.html", image=random_image)
@@ -89,13 +89,13 @@ def random():
   db = client["astronomy"]
   collection = db["apod"]
 
-  # Get the total number of documents in the collection
+  # Getting the total number of documents in the collection.
   total_images = collection.count_documents({})
 
-  # Generate a random index within the range of total images
+  # Generating a random index within the range of total images.
   random_index = randint(0, total_images - 1)
 
-  # Query MongoDB to get a random document
+  # Querying MongoDB to get a random document.
   random_image = collection.find().limit(-1).skip(random_index).next()
 
   return render_template("image_details.html", image=random_image)
@@ -104,12 +104,12 @@ def random():
 # Image Details
 @app.route("/image_details/<image_id>")
 def image_details(image_id):
-  # Connect to MongoDB
+  # Connecting to MongoDB.
   client = MongoClient(my_secret)
   db = client["astronomy"]
   collection = db["apod"]
 
-  # Query MongoDB to find the document with the specified image ID
+  # Querying MongoDB to find the document with the specified image ID.
   image = collection.find_one({"_id": ObjectId(image_id)})
   return render_template("image_details.html", image=image)
 
@@ -119,20 +119,19 @@ def image_details(image_id):
 def search():
   search_date = request.form.get("searchDate")
 
-  # Perform database query to find images for the selected date
+  # Performing database query to find images for the selected date.
   client = MongoClient(my_secret)
   db = client["astronomy"]
   collection = db["apod"]
 
-  # Query MongoDB to find the image with the selected date
+  # Querying MongoDB to find the image with the selected date.
   selected_image = collection.find_one({"Date": search_date})
 
   if selected_image:
-    # If an image is found, redirect to the image details page
+    # If an image is found, redirect to the image details page.
     return redirect(
         url_for("image_details", image_id=str(selected_image["_id"])))
   else:
-    # If no image is found, render an error page or handle it as desired
     return render_template("error.html",
                            message="No image found for the selected date.")
 
