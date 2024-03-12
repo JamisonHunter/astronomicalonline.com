@@ -1,3 +1,4 @@
+![Website Image](image.png)
 # astronomicalonline.com
 Welcome! This dynamic website displays the latest images from NASA's Astronomy Picture of the Day API in a clean style. 
 # Motivation
